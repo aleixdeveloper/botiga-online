@@ -31,12 +31,12 @@ const CartScreen = ({match, location, history}) => {
     }
     return (
         <>
-        <Link className='btn btn-primary my-3' to='/'>Segueix comprant</Link>
+        <Link className='btn btn-primary my-3' to='/'><i className="fas fa-long-arrow-alt-left"></i>&nbsp;Segueix Comprant</Link>
 
         <Row>
             <Col md={8}>
                 <h1>Cistella de compra</h1>
-                {cartItems.length === 0 ? <><Message>La teva cistella està buida</Message><Link to='/' className="btn btn-danger">Tornar</Link></> : (
+                {cartItems.length === 0 ? <Message>La teva cistella està buida</Message> : (
                     <ListGroup variant='flush'>
                         {cartItems.map(item => (
                             <ListGroup.Item key={item.product}>

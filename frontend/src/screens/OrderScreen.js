@@ -80,7 +80,7 @@ const OrderScreen = ({match, history}) => {
   
 
     return loading ? <Loader /> : error ? <Message variant='danger'>{error}</Message> : 
-    <><h1>Comanda: <span style={{fontWeight: 'bold' ,textTransform: 'uppercase'}}>{order._id}</span> </h1>
+    <><h1>Comanda: <span className='order-id'>{order._id}</span> </h1>
     
     <Row>
                <Col md={8}>
