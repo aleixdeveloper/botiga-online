@@ -1,0 +1,10 @@
+
+BUGS
+
+    - No es visualitza el nom i email de les comandes
+
+
+IMPROVES
+
+
+    - Restar 1 article a la quantitat en stock quan s'efectua una comanda.

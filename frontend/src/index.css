@@ -1,0 +1,86 @@
+/*VARIABLES */
+:root {
+  --info-light: #98d1e7;
+}
+main {
+  min-height: 80vh;
+}
+h1 {
+  font-size: 1.6rem;
+  padding: 1rem 0;
+}
+h2 {
+  font-size: 1.2rem;
+  padding: 0.5rem 0;
+}
+h3 {
+  padding: 1rem 0;
+}
+
+.rating span {
+  margin: 0.05rem;
+}
+
+.card {
+  height: 28em;
+}
+
+thead tr th {
+  font-weight: bold;
+}
+
+.show-password {
+  background-color: var(--info-light);
+  color: var(--light);
+  font-size: 20px;
+  position: absolute !important;
+  right: 16px;
+  bottom: 117px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+.success-mark {
+  background-color: rgba(144, 238, 144, 0.4);
+  padding: 5px;
+  border-radius: 2px;
+}
+
+/* carousel */
+.carousel-item-next,
+.carousel-item-prev,
+.carousel-item.active {
+  display: flex;
+}
+.carousel-caption {
+  position: absolute;
+  top: 0;
+}
+
+.carousel-caption h2 {
+  color: #fff;
+}
+
+.carousel img {
+  height: 300px;
+  padding: 30px;
+  margin: 40px;
+  border-radius: 5em;
+  margin-left: auto;
+  margin-right: auto;
+}
+.carousel a {
+  margin: 0 auto;
+}
+@media (max-width: 900px) {
+  .carousel-caption h2 {
+    font-size: 2.5vw;
+  }
+}
+@media (max-width: 480px) {
+  .hide-carousel {
+    display: none;
+  }
+}
