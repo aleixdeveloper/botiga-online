@@ -28,6 +28,9 @@ const ProfileScreen = ({ history }) => {
 
   const orderListMy = useSelector((state) => state.orderListMy)
   const { loading:loadingOrders ,error:errorOrders, orders } = orderListMy
+  
+  const addDec = (num) => (Math.round(num*100) / 100).toFixed(2)
+
 
   useEffect(() => {
     if (!userInfo) {
@@ -137,7 +140,7 @@ const ProfileScreen = ({ history }) => {
                 <tr key={order._id}>
                   <td>{order._id}</td>
                   <td>{order.createdAt.substring(0,10)}</td>
-                  <td>{order.totalPrice}€</td>
+                  <td>{addDec(order.totalPrice)}€</td>
                   <td>{order.isPaid ? <span className='success-mark'>{order.paidAt.substring(0,10)}</span> : (<i className="fas fa-times text-danger"></i>)}</td>
                   <td>{order.isDelivered ? <span className='success-mark'>{order.deliveredAt.substring(0,10)}</span> : (<i className="fas fa-times text-danger"></i>)}</td>
                   <td>

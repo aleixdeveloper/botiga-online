@@ -13,7 +13,7 @@ const products = [
   },
   {
     name: 'iPhone 11 Pro 256GB',
-    image: '/images/mobils/phone.jpg',
+    image: '/images/mobils/iphone.jpeg',
     description:
       'Presentació de l\'iPhone 11 Pro. Un sistema transformador de tres càmeres que afegeix moltes funcions sense complexitat. Un salt sense precedents en la durada de la bateria',
     brand: 'Apple',

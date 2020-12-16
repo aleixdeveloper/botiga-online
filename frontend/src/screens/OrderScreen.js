@@ -27,14 +27,11 @@ const OrderScreen = ({match, history}) => {
   
     const userLogin = useSelector((state) => state.userLogin)
     const { userInfo } = userLogin
-  
+    const addDec = (num) => (Math.round(num*100) / 100).toFixed(2)
     if (!loading) {
-      //   Calculate prices
-      const addDecimals = (num) => {
-        return (Math.round(num * 100) / 100).toFixed(2)
-      }
+
   
-      order.itemsPrice = addDecimals(
+      order.itemsPrice = addDec(
         order.orderItems.reduce((acc, item) => acc + item.price * item.qty, 0)
       )
     }
@@ -160,7 +157,7 @@ const OrderScreen = ({match, history}) => {
                             </ListGroup.Item>
                             <ListGroup.Item>
                                 <Row>
-                                    <Col>Items</Col>
+                                    <Col>Articles</Col>
                                     <Col>{order.itemsPrice}€</Col>
                                 </Row>
                             </ListGroup.Item>
@@ -173,13 +170,13 @@ const OrderScreen = ({match, history}) => {
                             <ListGroup.Item>
                                 <Row>
                                     <Col>IVA (21%)</Col>
-                                    <Col>{order.taxPrice}€</Col>
+                                    <Col>{addDec(order.taxPrice)}€</Col>
                                 </Row>
                             </ListGroup.Item>
                             <ListGroup.Item>
                                 <Row>
                                     <Col><span style={{fontWeight: 'bold', fontSize: '1.2em'}}>TOTAL</span></Col>
-                                    <Col><span style={{fontWeight: 'bold', fontSize: '1.2em'}}>{order.totalPrice}€</span></Col>
+                                    <Col><span style={{fontWeight: 'bold', fontSize: '1.2em'}}>{addDec(order.totalPrice)}€</span></Col>
                                 </Row>
                             </ListGroup.Item>
                             {!order.isPaid && (
