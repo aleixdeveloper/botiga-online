@@ -10,11 +10,12 @@ h1 {
   padding: 1rem 0;
 }
 h2 {
-  font-size: 1.2rem;
+  font-size: 1.3rem;
   padding: 0.5rem 0;
 }
 h3 {
-  padding: 1rem 0;
+  font-size: 1.1rem;
+  padding: 0.3rem 0;
 }
 
 .rating span {
@@ -79,6 +80,10 @@ thead tr th {
 }
 .small-table {
   display: none;
+}
+
+.underline-success {
+  border-bottom: 1px solid #4bbf73;
 }
 
 /*OVERWRITE */

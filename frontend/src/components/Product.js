@@ -3,9 +3,9 @@ import {Link} from 'react-router-dom'
 import { Card } from 'react-bootstrap'
 import Rating from './Rating'
 
-
 const Product = ({product}) => {
 
+    
 
     //Calculate Prices
     const addDec = (num) => (Math.round(num*100) / 100).toFixed(2)

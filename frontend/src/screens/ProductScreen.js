@@ -6,6 +6,7 @@ import Rating from '../components/Rating'
 import Message from '../components/Message'
 import Loader from '../components/Loader'
 import Meta from '../components/Meta'
+import ImageModal from '../components/ImageModal'
 import { listProductDetails, createProductReview } from '../actions/productActions'
 import { PRODUCT_CREATE_REVIEW_RESET } from '../constants/productConstants'
 
@@ -15,7 +16,8 @@ const ProductScreen = ({history,match}) => {
     const [qty, setQty] = useState(1)
     const [rating, setRating] = useState('0')
     const [comment, setComment] = useState('')
-
+    const [modalShow, setModalShow] = useState(false);
+  
     const dispatch = useDispatch()
 
     const productDetails = useSelector(state => state.productDetails)
@@ -63,7 +65,8 @@ const ProductScreen = ({history,match}) => {
         <Meta title={product.name} description={product.description} keywords={product.category} />
             <Row>
             <Col sm={12} md={12} lg={4}>
-                <Image src={product.image} alt={product.name} fluid></Image>
+                <Image style={{marginTop: '3em', marginBottom: '3em', cursor: 'pointer'}} src={product.image} alt={product.name} fluid onClick={() => setModalShow(true)}></Image>
+                <ImageModal show={modalShow} onHide={() => setModalShow(false)} product={product} />
             </Col>
             <Col lg={4}>
                 <ListGroup variant="flush">
@@ -105,7 +108,7 @@ const ProductScreen = ({history,match}) => {
                                     <span style={{fontWeight: 'bold'}}>Estat:</span>
                                 </Col>
                                 <Col>
-                                {product.countInStock > 0 ? 'En Stock' : 'Sense Stock'}
+                                {product.countInStock > 0 ? <span className='underline-success'>En Stock</span> : 'Sense Stock'}
                                 </Col>
                             </Row>
                         </ListGroup.Item>
@@ -140,7 +143,7 @@ const ProductScreen = ({history,match}) => {
             </Col>
         </Row>
         <Row className="my-5">
-            <Col md={6}>
+            <Col md={8}>
                 <h2>Ressenyes</h2>
                 {product.reviews.length === 0 && <Message variant='info'>No hi ha ressenyes d'aquest producte</Message>}
                 <ListGroup variant='flush'>
@@ -153,7 +156,7 @@ const ProductScreen = ({history,match}) => {
                         </ListGroup.Item>
                     ))}
                 <ListGroup.Item>
-                    <h2>Escriu una ressenya com a client</h2>
+                    <h3>Escriu una ressenya com a client</h3>
                     {errorProductReview && <Message variant='danger'>{errorProductReview}</Message>}
                     {userInfo ? (
                     <Form onSubmit={submitHandler}>
@@ -161,7 +164,7 @@ const ProductScreen = ({history,match}) => {
                             <Form.Label>Qualificació</Form.Label>
                             <Form.Control as='select' value={rating} onChange={(e) => setRating(e.target.value)}>
                                 <option value=''>Selecciona...</option>
-                                <option value='1'>1 - Molt Malament</option>
+                                <option value='1' className='option-1'>1 - Molt Malament</option>
                                 <option value='2'>2 - Malament</option>
                                 <option value='3'>3 - Bé</option>
                                 <option value='4'>4 - Molt bé</option>
