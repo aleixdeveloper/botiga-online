@@ -53,6 +53,13 @@ thead tr th {
   text-transform: "uppercase";
 }
 /* carousel */
+
+.carousel-background {
+  background: linear-gradient(20deg, #1a88e2 30%, #25d7ff 90%) !important;
+  border-radius: 2em;
+  box-shadow: 0px 20px 40px rgb(92, 92, 92);
+}
+
 .carousel-item-next,
 .carousel-item-prev,
 .carousel-item.active {

@@ -34,7 +34,7 @@ const Header = () => {
 
     <Nav className="ml-auto">
     <LinkContainer to='/cart'>
-    <Nav.Link><i className="fas fa-shopping-cart"></i>&nbsp;Cistella {cartItems.length > 0 && (<span>({cartItems.length})</span>)}</Nav.Link>
+    <Nav.Link><i className="fas fa-shopping-cart" style={{fontSize: '18px', marginTop: '-0.2em'}}></i>&nbsp;Cistella {cartItems.length > 0 && (<span>({cartItems.length})</span>)}</Nav.Link>
 
       </LinkContainer>
       {userInfo ? 
@@ -45,6 +45,7 @@ const Header = () => {
           </LinkContainer>
           <NavDropdown.Item onClick={logoutHandler}>Tanca sessió</NavDropdown.Item>
           </NavDropdown>
+          
       ) : 
       (
         <LinkContainer to='/login'>
