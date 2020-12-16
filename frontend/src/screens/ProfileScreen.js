@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { Form, Button, Row, Col, Table } from 'react-bootstrap'
+import { Form, Button, Row, Col, Table, Container } from 'react-bootstrap'
 import { LinkContainer } from 'react-router-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
 import Message from '../components/Message'
@@ -54,6 +54,7 @@ const ProfileScreen = ({ history }) => {
   }
 
   return (
+
     <Row>
       <Col md={3}>
         <h2>Perfil d'usuari</h2>
@@ -119,7 +120,8 @@ const ProfileScreen = ({ history }) => {
         ) : errorOrders ? (
           <Message variant='danger'>{errorOrders}</Message>
         ) : (
-        <Table striped bordered hover responsive className='table-sm text-center'>
+        <>
+        <Table striped bordered hover responsive className='table-sm text-center large-table'>
             <thead>
               <tr>
                 <th>ID</th>
@@ -135,9 +137,9 @@ const ProfileScreen = ({ history }) => {
                 <tr key={order._id}>
                   <td>{order._id}</td>
                   <td>{order.createdAt.substring(0,10)}</td>
-                  <td>{order.totalPrice}</td>
-                  <td>{order.isPaid ? order.paidAt.substring(0,10) : (<i className="fas fa-times text-danger"></i>)}</td>
-                  <td>{order.isDelivered ? order.deliveredAt.substring(0,10) : (<i className="fas fa-times text-danger"></i>)}</td>
+                  <td>{order.totalPrice}€</td>
+                  <td>{order.isPaid ? <span className='success-mark'>{order.paidAt.substring(0,10)}</span> : (<i className="fas fa-times text-danger"></i>)}</td>
+                  <td>{order.isDelivered ? <span className='success-mark'>{order.deliveredAt.substring(0,10)}</span> : (<i className="fas fa-times text-danger"></i>)}</td>
                   <td>
                     <LinkContainer to={`/order/${order._id}`}>
                       <Button  className="btn-sm" variant='info'>Detalls</Button>
@@ -147,9 +149,45 @@ const ProfileScreen = ({ history }) => {
               ))}
             </tbody>
           </Table>
+          {orders.map((order) => (
+          <>
+          <Table striped bordered hover responsive className='text-center small-table'> 
+          <tr key={order._id}>
+              <th>ID</th>
+            <td>{order._id}</td>
+          </tr>
+          <tr>
+            <th>DATA</th>
+            <td>{order.createdAt.substring(0,10)}</td>
+          </tr>
+          <tr>
+            <th>TOTAL</th>
+            <td>{order.totalPrice}€</td>
+          </tr>
+          <tr>
+            <th>PAGAT</th>
+            <td>{order.isPaid ? <span className='success-mark'>{order.paidAt.substring(0,10)}</span> : (<i className="fas fa-times text-danger"></i>)}</td>
+          </tr>
+          <tr>
+            <th>ENVIAT</th>
+            <td>{order.isDelivered ? <span className='success-mark'>{order.deliveredAt.substring(0,10)}</span> : (<i className="fas fa-times text-danger"></i>)}</td>
+          </tr>
+          <tr>
+            <th></th>
+            <td><LinkContainer to={`/order/${order._id}`}>
+                    <Button  className="btn-sm" variant='info'>Detalls</Button>
+                  </LinkContainer></td>
+          </tr>
+         </Table>
+         <br/>
+         </>
+          ))}
+          </>
         )}
       </Col>
     </Row>
+
+
   )
 }
 

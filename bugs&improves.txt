@@ -1,8 +1,7 @@
 
 BUGS
 
-    - No es visualitza el nom i email de les comandes
-
+	- Si s'actualitza la pagina del metode de pagament, aquest es borra i no es pot efectuar la comanda
 
 IMPROVES
 

@@ -45,7 +45,7 @@ thead tr th {
 .success-mark {
   background-color: rgba(144, 238, 144, 0.4);
   padding: 5px;
-  border-radius: 2px;
+  border-radius: 10px;
 }
 .order-id {
   font-weight: "bold";
@@ -77,9 +77,74 @@ thead tr th {
 .carousel a {
   margin: 0 auto;
 }
-@media (max-width: 900px) {
+.small-table {
+  display: none;
+}
+
+/*OVERWRITE */
+.container,
+.container-fluid,
+.container-lg,
+.container-md,
+.container-sm,
+.container-xl {
+  width: 100%;
+  padding-right: 10px !important;
+  padding-left: 10px !important;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+@media (min-width: 576px) {
+  .container,
+  .container-sm {
+    max-width: 570px !important;
+  }
+}
+
+@media (min-width: 768px) {
+  .container,
+  .container-md,
+  .container-sm {
+    max-width: 760px !important;
+  }
+}
+
+@media (min-width: 992px) {
+  .container,
+  .container-lg,
+  .container-md,
+  .container-sm {
+    max-width: 990px !important;
+  }
+}
+
+@media (min-width: 1200px) {
+  .container,
+  .container-lg,
+  .container-md,
+  .container-sm,
+  .container-xl {
+    max-width: 1180px !important;
+  }
+}
+/*-------------*/
+@media (max-width: 1000px) {
+  .large-table {
+    font-size: 10px;
+  }
+}
+
+@media (max-width: 700px) {
   .carousel-caption h2 {
     font-size: 2.5vw;
+  }
+
+  .small-table {
+    display: inline;
+  }
+  .large-table {
+    display: none;
   }
 }
 @media (max-width: 500px) {
