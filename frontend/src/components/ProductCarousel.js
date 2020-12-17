@@ -12,7 +12,7 @@ const ProductCarousel = () => {
 
     const productTopRated = useSelector((state) => state.productTopRated)
     const { loading, error, products} = productTopRated
-    //const randomNumber = Math.floor(Math.random()*4);
+    const randomNumber = Math.floor(Math.random()*2);
     const [color,setColor] = useState({
         background: 'linear-gradient(20deg, #167ddd 30%, #12e3ff 90%)'
     })
@@ -20,6 +20,9 @@ const ProductCarousel = () => {
     const colors = [
         {
             background: 'linear-gradient(20deg, #167ddd 30%, #12e3ff 90%)'
+        },
+        {
+            background: 'linear-gradient(to right, #40E0D0, #FF8C00, #FF0080)'
         },
         /*
         {
@@ -56,7 +59,7 @@ const ProductCarousel = () => {
     ]
     useEffect(() => {
         dispatch(listTopProducts())
-        setColor(colors[0])
+        setColor(colors[randomNumber])
 
     },[dispatch])
 
