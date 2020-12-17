@@ -5,7 +5,7 @@ import {Navbar, Nav, Container, NavDropdown } from 'react-bootstrap'
 import {LinkContainer} from 'react-router-bootstrap'
 import {logout} from '../actions/userActions'
 import SearchBox from './SearchBox'
-import cart_icon from '../assets/icons/cart.png';
+import cart_icon from '../assets/icons/cart2.png';
 
 const Header = () => {
     const dispatch = useDispatch()
@@ -29,8 +29,8 @@ const Header = () => {
                     <img
                       alt=""
                       src={cart_icon}
-                      width="35"
-                      height="35"
+                      width="54"
+                      height="40"
                       className="d-inline-block mb-1"
                     />
                     Botiga Online
