@@ -5,6 +5,7 @@ import {Navbar, Nav, Container, NavDropdown } from 'react-bootstrap'
 import {LinkContainer} from 'react-router-bootstrap'
 import {logout} from '../actions/userActions'
 import SearchBox from './SearchBox'
+import cart_icon from '../assets/icons/cart.png';
 
 const Header = () => {
     const dispatch = useDispatch()
@@ -24,13 +25,23 @@ const Header = () => {
            <Navbar bg="primary" variant="dark" expand="lg" collapseOnSelect>
                <Container>
                <LinkContainer to='/'>
-                 <Navbar.Brand>Botiga Online</Navbar.Brand>
-               
+                  <Navbar.Brand>
+                    <img
+                      alt=""
+                      src={cart_icon}
+                      width="35"
+                      height="35"
+                      className="d-inline-block mb-1"
+                    />
+                    Botiga Online
+                  </Navbar.Brand>
                </LinkContainer>
+               <Route render={({history}) => <SearchBox history={history} />} />
   <Navbar.Toggle aria-controls="basic-navbar-nav" />
+
   <Navbar.Collapse id="basic-navbar-nav">
 
-      <Route render={({history}) => <SearchBox history={history} />} />
+
 
     <Nav className="ml-auto">
     <LinkContainer to='/cart'>

@@ -1,12 +1,17 @@
 import React from 'react'
 import { Container, Row, Col } from 'react-bootstrap'
+import mern_image from '../assets/media/mern-min.png'
 const Footer = () => {
     return (
         <footer>
-            <Container>
+            <Container fluid className='bg-primary text-light'>
                 <Row>
-                    <Col className='text-center py-3'>
-                    Copyright &copy; aleixdev
+                    <Col className='text-center py-3 '>
+                    <p style={{
+                        fontSize: '1.2em'
+                    }}>Copyright &copy; aleixdev 2020 | <span style={{
+                        fontSize: '1.2em'
+                    }}>Built with <img width={100} src={mern_image} alt='mern stack'></img> stack</span></p>
                     </Col>
                 </Row>
             </Container>            
