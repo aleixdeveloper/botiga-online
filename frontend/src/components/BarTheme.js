@@ -16,7 +16,7 @@ const BarTheme = (props) => {
 
     return (
         <Row>
-        <div style={{width: '100%', height:props.height, background:theme.background}}></div>
+        {!loading && <div style={{width: '100%', height:props.height, background:theme.background}}></div>}
         </Row>
     )
 }
