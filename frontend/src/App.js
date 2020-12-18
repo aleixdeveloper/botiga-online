@@ -1,5 +1,6 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom' 
+import {useDispatch,useSelector} from 'react-redux'
 import { Container} from 'react-bootstrap'
 import Header from './components/Header'
 import Footer from './components/Footer'
@@ -18,11 +19,22 @@ import UserEditScreen from './screens/UserEditScreen'
 import ProductListScreen from './screens/ProductListScreen'
 import ProductEditScreen from './screens/ProductEditScreen'
 import OrderListScreen from './screens/OrderListScreen'
+import {getTheme} from './actions/themeActions'
 
 const App = () => {
+
+  const dispatch = useDispatch()
+  const listTheme = useSelector((state) => state.getTheme)
+  const { loading, theme } = listTheme
+
+  useEffect(()=>{
+    dispatch(getTheme())
+  },[dispatch])
+
+
   return (
     <Router>
-      <Header />
+      {!loading && <Header theme={theme.image} />}
       <main className='py-4'>
       <Container>
 

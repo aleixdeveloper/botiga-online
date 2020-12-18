@@ -1,10 +1,13 @@
 import React from 'react'
 import { Container, Row, Col } from 'react-bootstrap'
 import mern_image from '../assets/media/mern-min.png'
+import BarTheme from '../components/BarTheme'
+
 const Footer = () => {
     return (
         <footer>
             <Container fluid className='bg-primary text-light'>
+                <BarTheme />
                 <Row>
                     <Col className='text-center py-3 '>
                     <p style={{

@@ -5,9 +5,9 @@ import {Navbar, Nav, Container, NavDropdown } from 'react-bootstrap'
 import {LinkContainer} from 'react-router-bootstrap'
 import {logout} from '../actions/userActions'
 import SearchBox from './SearchBox'
-import cart_icon from '../assets/icons/cart2.png';
+import BarTheme from './BarTheme'
 
-const Header = () => {
+const Header = (props) => {
     const dispatch = useDispatch()
 
     const cart = useSelector(state => state.cart)
@@ -28,7 +28,7 @@ const Header = () => {
                   <Navbar.Brand>
                     <img
                       alt=""
-                      src={cart_icon}
+                      src={props.theme}
                       width="54"
                       height="40"
                       className="d-inline-block mb-1"
@@ -76,11 +76,14 @@ const Header = () => {
           </LinkContainer>
           <NavDropdown.Item onClick={logoutHandler}>Tanca sessió</NavDropdown.Item>
           </NavDropdown>) }
-    </Nav>
-  </Navbar.Collapse>
-  </Container>
+            </Nav>
+            </Navbar.Collapse>
+            
+            </Container>
 
-</Navbar>
+
+          </Navbar>
+          <BarTheme height={'6px'} />
         </header>
     )
 }
