@@ -1,0 +1,11 @@
+
+BUGS
+
+	- Si s'actualitza la pagina del metode de pagament, aquest es borra i no es pot efectuar la comanda
+        "Order validation failed: paymentMethod: Path `paymentMethod` is required."
+
+        
+IMPROVES
+
+
+    - Restar 1 article a la quantitat en stock quan s'efectua una comanda.
