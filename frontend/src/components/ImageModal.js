@@ -19,7 +19,7 @@ const ImageModal = (props) => {
         <Image src={product.image} />
       </Modal.Body>
       <Modal.Footer>
-        <Button onClick={props.onHide} variant='outline-danger'>Close</Button>
+        <Button onClick={props.onHide} variant='outline-danger'>Tancar</Button>
       </Modal.Footer>
     </Modal>
     )

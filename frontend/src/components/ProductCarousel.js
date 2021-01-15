@@ -24,7 +24,7 @@ const ProductCarousel = () => {
     console.log('back:', theme.background)
     return loading ? (<Loader />) : error ? (<Message variant='danger'>{error}</Message>) : (
             <div className='hide-carousel' style={{margin: '2em 2.5em 5em 2.5em'}}>
-                <Carousel pause='hover' className='bg-dark carousel-background'  style={{background: theme.background}}>
+                <Carousel pause='hover' className='bg-dark carousel-background'  style={{background: theme.gradient}}>
                 {products.map((product) => (
                     <Carousel.Item key={product._id}>
                         <Link to={`/product/${product._id}`}>

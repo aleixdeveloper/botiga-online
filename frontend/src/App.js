@@ -30,8 +30,6 @@ const App = () => {
   useEffect(()=>{
     dispatch(getTheme())
   },[dispatch])
-
-
   return (
     <Router>
       {!loading && <Header theme={theme.image} />}
@@ -64,5 +62,6 @@ const App = () => {
     </Router>
   );
 }
+
 
 export default App;
