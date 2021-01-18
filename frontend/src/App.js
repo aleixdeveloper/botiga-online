@@ -1,7 +1,7 @@
-import React, {useState, useEffect} from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom' 
-import {useDispatch,useSelector} from 'react-redux'
-import { Container} from 'react-bootstrap'
+import React, { useState, useEffect } from 'react';
+import { BrowserRouter as Router, Route } from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux'
+import { Container } from 'react-bootstrap'
 import Header from './components/Header'
 import Footer from './components/Footer'
 import HomeScreen from './screens/HomeScreen'
@@ -19,7 +19,7 @@ import UserEditScreen from './screens/UserEditScreen'
 import ProductListScreen from './screens/ProductListScreen'
 import ProductEditScreen from './screens/ProductEditScreen'
 import OrderListScreen from './screens/OrderListScreen'
-import {getTheme} from './actions/themeActions'
+import { getTheme } from './actions/themeActions'
 
 const App = () => {
 
@@ -27,35 +27,35 @@ const App = () => {
   const listTheme = useSelector((state) => state.getTheme)
   const { loading, theme } = listTheme
 
-  useEffect(()=>{
+  useEffect(() => {
     dispatch(getTheme())
-  },[dispatch])
+  }, [dispatch])
   return (
     <Router>
       {!loading && <Header theme={theme.image} />}
-      <main className='py-4'>
-      <Container>
+      <main className='py-4 mb-4'>
+        <Container>
 
-      <Route path='/shipping' component={ShippingScreen} />
-      <Route path='/placeorder' component={PlaceOrderScreen} />
-      <Route path='/order/:id' component={OrderScreen} />
-      <Route path='/payment' component={PaymentScreen} />
-      <Route path='/login' component={LoginScreen} />
-      <Route path='/register' component={RegisterScreen} />
-      <Route path='/profile' component={ProfileScreen} />
-      <Route path='/product/:id' component={ProductScreen} />
-      <Route path='/cart/:id?' component={CartScreen} />
-      <Route path='/admin/userlist' component={UserListScreen} />
-      <Route path='/admin/user/:id/edit' component={UserEditScreen} />
-      <Route path='/admin/productlist' component={ProductListScreen} exact/>
-      <Route path='/admin/productlist/:pageNumber' component={ProductListScreen} exact />
-      <Route path='/admin/product/:id/' component={ProductEditScreen} />
-      <Route path='/admin/orderlist' component={OrderListScreen} />
-      <Route path='/search/:keyword' component={HomeScreen} exact />
-      <Route path='/page/:pageNumber' component={HomeScreen} exact />
-      <Route path='/search/:keyword/page/:pageNumber' component={HomeScreen} exact />
-      <Route path='/' component={HomeScreen} exact />
-      </Container>
+          <Route path='/shipping' component={ShippingScreen} />
+          <Route path='/placeorder' component={PlaceOrderScreen} />
+          <Route path='/order/:id' component={OrderScreen} />
+          <Route path='/payment' component={PaymentScreen} />
+          <Route path='/login' component={LoginScreen} />
+          <Route path='/register' component={RegisterScreen} />
+          <Route path='/profile' component={ProfileScreen} />
+          <Route path='/product/:id' component={ProductScreen} />
+          <Route path='/cart/:id?' component={CartScreen} />
+          <Route path='/admin/userlist' component={UserListScreen} />
+          <Route path='/admin/user/:id/edit' component={UserEditScreen} />
+          <Route path='/admin/productlist' component={ProductListScreen} exact />
+          <Route path='/admin/productlist/:pageNumber' component={ProductListScreen} exact />
+          <Route path='/admin/product/:id/' component={ProductEditScreen} />
+          <Route path='/admin/orderlist' component={OrderListScreen} />
+          <Route path='/search/:keyword' component={HomeScreen} exact />
+          <Route path='/page/:pageNumber' component={HomeScreen} exact />
+          <Route path='/search/:keyword/page/:pageNumber' component={HomeScreen} exact />
+          <Route path='/' component={HomeScreen} exact />
+        </Container>
 
       </main>
       <Footer />
